@@ -1,0 +1,21 @@
+<script async src="https://wzrd.in/standalone/formdata-polyfill"></script>
+<script async src="https://wzrd.in/standalone/promise-polyfill@latest"></script>
+<script async src="https://wzrd.in/standalone/whatwg-fetch@latest"></script>
+
+<script type="text/javascript">
+  const scriptURL = 'https://script.google.com/macros/s/AKfycbwUPqh3qAWWixrllR0ZTHoMbYzh7t6nUd06Sij0aFoyWN3luh_pj8-7lDvjH-hkxTgX8Q/exec'
+  const form = document.getElementById('form_id');
+  
+  console.log("Hello World!!");
+
+  document.querySelector('#submit').addEventListener('click', e => {
+    e.preventDefault()
+    const Form = new FormData();
+    Form.append('Email',document.getElementById('email').value);
+    Form.append('Phone',document.getElementById('Phone-no').value);
+    fetch(scriptURL, {mode: 'no-cors',method: 'POST', body: Form})
+      .then(response =>window.location.href = 'https://www.google.com/')
+      .catch(error => console.error('Error!', error.message))
+  })
+  
+</script>
